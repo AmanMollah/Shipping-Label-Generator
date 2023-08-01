@@ -29,7 +29,7 @@ export default function App() {
   useEffect(() => {
     queryParams.forEach((value, key) => {
       setFormData(prev => {
-        return { ...prev, [key]: value }
+        return { ...prev, [key]: value.replace(/\n\n/g, '\n') }
       })
     })
   }, [])
@@ -80,8 +80,8 @@ export default function App() {
         <button className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight' onClick={handlePrint}>PRINT</button>
       </aside>
       <section className='flex flex-col items-center justify-center h-screen aspect-[1/1.414] shadow-xl preview border'>
-        <div className='flex-1 grid place-items-center px-4'>
-          <div className='font-["quickpen"] text-3xl text-center whitespace-pre' dangerouslySetInnerHTML={{__html: formData.message.replace(/\n\n/g, '\n')}} />
+        <div className='flex-1 grid place-items-center px-8'>
+          <div className='font-["quickpen"] text-3xl text-center whitespace-pre-wrap' dangerouslySetInnerHTML={{__html: formData.message}} />
         </div>
         <div className='flex-1 w-full flex flex-col'>
           <div className='flex flex-col gap-2'>
@@ -95,12 +95,12 @@ export default function App() {
               <span className='border-r-[1px] border-solid border-black pr-1'>Delivery: {formData.delivery_type}</span>
               <span className='border-r-[1px] border-solid border-black pr-1'>T.S: {formData.customer_phone}</span>
               <span className='border-r-[1px] border-solid border-black pr-1'>T.R.: {formData.recipient_phone}</span>
-              <span className=''>Door: <span className='font-bold'>{formData.shipping_method.toUpperCase()}</span></span>
+              <span className=''>Door: {formData.recipient_door_code}</span>
             </div>
           </div>
           <div className='flex-1 px-8 py-20 flex flex-col'>
             <div className='flex-1 flex flex-col justify-between'>
-              <span className='text-2xl font-semibold whitespace-pre text-center'>{formData.address}</span>
+              <span className='text-2xl font-semibold whitespace-pre-wrap text-center'>{formData.address}</span>
               <div className='flex justify-end px-8 text-sm gap-4'>
                 <span>Order: #{formData.order_number}</span>
                 <span className='font-bold border border-black'>{formData.shipping_method.toUpperCase()}</span>
