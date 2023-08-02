@@ -7,7 +7,7 @@
   src: url('./assets/quickpen.otf') format('opentype');
 }
 
-@page { size: auto;  margin: 0mm; }
+@page { size: A5;  margin: 0; }
 @media print {
   .printHide {
     display: none;

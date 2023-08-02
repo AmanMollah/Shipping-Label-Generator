@@ -79,34 +79,35 @@ export default function App() {
         <Input handleChange={handleChange} name="customer_account_company_name" label="Customer Account Company Name" value={formData["customer_account_company_name"]} />
         <button className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight' onClick={handlePrint}>PRINT</button>
       </aside>
-      <section className='flex flex-col items-center justify-center h-screen aspect-[1/1.414] shadow-xl preview border'>
-        <div className='flex-1 grid place-items-center px-8'>
-          <div className='font-["quickpen"] text-3xl text-center whitespace-pre-wrap' dangerouslySetInnerHTML={{__html: formData.message}} />
+      <section className='flex flex-col h-[1050px] w-[742.5px] shadow-xl preview border'>
+        <div className='flex-1 grid place-items-center px-[50px] pt-[100px] pb-[50px]'>
+          <div className='font-["quickpen"] text-3xl text-center whitespace-pre-wrap' dangerouslySetInnerHTML={{ __html: formData.message }} />
         </div>
-        <div className='flex-1 w-full flex flex-col'>
-          <div className='flex flex-col gap-2'>
-            <div className='flex justify-center text-[10px] leading-[10px] gap-1'>
-              <span className='border-r-[1px] border-solid border-black pr-1'>Order: #{formData.order_number}</span>
-              <span className='border-r-[1px] border-solid border-black pr-1'>Customer: {formData.customer_name}</span>
-              <span className='border-r-[1px] border-solid border-black pr-1'>product: {formData.product_name}</span>
-              <span className=''>{formData.details}</span>
+        <div className='flex-1 w-full flex flex-col px-[100px] py-[50px] gap-y-[25px]'>
+          <div className='relative flex justify-center items-center h-[250px]'>
+            <div className='flex flex-col gap-2 absolute top-0 left-0 right-0'>
+              <div className='flex justify-center text-[10px] leading-[10px] gap-1'>
+                <span className='border-r-[1px] border-solid border-black pr-1'>Order: #{formData.order_number}</span>
+                <span className='border-r-[1px] border-solid border-black pr-1'>Customer: {formData.customer_name}</span>
+                <span className='border-r-[1px] border-solid border-black pr-1'>product: {formData.product_name}</span>
+                <span className=''>{formData.details}</span>
+              </div>
+              <div className='flex justify-center text-[10px] leading-[10px] gap-1'>
+                <span className='border-r-[1px] border-solid border-black pr-1'>Delivery: {formData.delivery_type}</span>
+                <span className='border-r-[1px] border-solid border-black pr-1'>T.S: {formData.customer_phone}</span>
+                <span className='border-r-[1px] border-solid border-black pr-1'>T.R.: {formData.recipient_phone}</span>
+                <span className='pr-1'>Door: {formData.recipient_door_code}</span>
+                <span className='font-bold'>{formData.shipping_method.toUpperCase()}</span>
+              </div>
             </div>
-            <div className='flex justify-center text-[10px] leading-[10px] gap-1'>
-              <span className='border-r-[1px] border-solid border-black pr-1'>Delivery: {formData.delivery_type}</span>
-              <span className='border-r-[1px] border-solid border-black pr-1'>T.S: {formData.customer_phone}</span>
-              <span className='border-r-[1px] border-solid border-black pr-1'>T.R.: {formData.recipient_phone}</span>
-              <span className=''>Door: {formData.recipient_door_code}</span>
+            <span className='text-2xl font-semibold whitespace-pre-wrap text-center'>{formData.address}</span>
+            <div className='flex justify-end text-sm gap-4 absolute bottom-0 right-0'>
+              <span>Order: #{formData.order_number}</span>
+              <span className='font-bold border border-black'>{formData.shipping_method.toUpperCase()}</span>
             </div>
           </div>
-          <div className='flex-1 px-8 py-20 flex flex-col'>
-            <div className='flex-1 flex flex-col justify-between'>
-              <span className='text-2xl font-semibold whitespace-pre-wrap text-center'>{formData.address}</span>
-              <div className='flex justify-end px-8 text-sm gap-4'>
-                <span>Order: #{formData.order_number}</span>
-                <span className='font-bold border border-black'>{formData.shipping_method.toUpperCase()}</span>
-              </div>
-              <span className='text-center font-["quickpen"] text-xl'>{formData.recipient_name}</span>
-            </div>
+          <div className='h-[150px] grid place-content-center'>
+            <span className='text-center font-["quickpen"] text-xl'>{formData.recipient_name}</span>
           </div>
         </div>
       </section>
