@@ -99,14 +99,14 @@ export default function App() {
               <span className='font-bold'>{formData.shipping_method.toUpperCase()}</span>
             </div>
           </div>
-          <div className='relative flex justify-center items-center h-[250px] mb-[25px]'>
+          <div className='relative flex justify-center items-center h-[250px]'>
             <span className='text-2xl font-semibold whitespace-pre-wrap text-center'>{formData.address}</span>
             <div className='flex justify-end text-sm gap-4 absolute bottom-0 right-0'>
               <span>Order: #{formData.order_number}</span>
               <span className='font-bold border border-black'>{formData.shipping_method.toUpperCase()}</span>
             </div>
           </div>
-          <div className='h-[150px] flex justify-center items-center'>
+          <div className='h-[150px] flex justify-center items-center mt-[40px] border border-black'>
             <span className='text-center font-["quickpen"] text-3xl'>{formData.recipient_name}</span>
           </div>
         </div>
