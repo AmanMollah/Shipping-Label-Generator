@@ -84,7 +84,7 @@ export default function App() {
           <div className='grid place-content-center font-["quickpen"] text-3xl text-center whitespace-pre-wrap px-[50px] mt-[100px] mb-[50px] h-[375px]' dangerouslySetInnerHTML={{ __html: formData.message }} />
         </div>
         <div className='flex-1 w-full flex flex-col px-[100px]'>
-          <div className='flex flex-col gap-1 h-[50px] justify-center'>
+          <div className='flex flex-col gap-[6px] h-[50px] justify-center'>
             <div className='flex justify-center text-[10px] leading-[10px] gap-1'>
               <span className='border-r-[1px] border-solid border-black pr-1'>Order: #{formData.order_number}</span>
               <span className='border-r-[1px] border-solid border-black pr-1'>Customer: {formData.customer_name}</span>
